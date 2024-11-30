@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="JuegoTutorial.UserControls.InterfazJugador"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JuegoTutorial.UserControls"
+             Width="1280"
+             Height="720"
+             
+             mc:Ignorable="d" 
+             >
+    <UserControl.Resources>
+        <Storyboard x:Key="inicioTiempoGuerra">
+            <DoubleAnimation Storyboard.TargetName="Efecto" Storyboard.TargetProperty="Opacity" 
+                             From="0" To="0.5" Duration="0:0:.5" AutoReverse="True" 
+                             RepeatBehavior="Forever"/>
+        </Storyboard>
+        
+        <Storyboard x:Key="objetoSeleccionado">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" To="1.1" Duration="0:0:0.2" />
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" To="1.1" Duration="0:0:0.2" />
+        </Storyboard>
+        
+        <Storyboard x:Key="objetoDeseleccionado">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" To="1.0" Duration="0:0:0.2" />
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" To="1.0" Duration="0:0:0.2" />
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid x:Name="Pantalla" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1280" Height="720" >
+        <Grid.Effect>
+            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="0" Opacity="1"/>
+        </Grid.Effect>
+        <Grid Opacity=".5" Background="Black" >
+            <Grid.Clip>
+                <CombinedGeometry GeometryCombineMode="Exclude">
+                    <!-- Rectángulo completo -->
+                    <CombinedGeometry.Geometry1>
+                        <RectangleGeometry x:Name="rectanguloCompleto" Rect="0,0,1280,720"/>
+                    </CombinedGeometry.Geometry1>
+                    <!-- Esquinas interiores redondeadas -->
+                    <CombinedGeometry.Geometry2>
+                        <RectangleGeometry x:Name="rectanguloInterior" Rect="20,20,1240,680" RadiusX="20" RadiusY="20"/>
+                    </CombinedGeometry.Geometry2>
+                </CombinedGeometry>
+            </Grid.Clip>
+        </Grid>
+        <TextBlock x:Name="tbcPuntaje" 
+                   VerticalAlignment="Top" HorizontalAlignment="Left" Margin="30,30,0,0"
+                   Text="0 pts" FontSize="40" FontWeight="Bold" FontStyle="Italic" FontFamily="Arial" 
+                   Foreground="White" Opacity="0.5"
+                   />
+        <TextBlock x:Name="tbcTiempoGuerra" 
+           VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,30,0"
+           Text="Tiempo de Guerra!" FontSize="40" FontWeight="Bold" FontStyle="Italic" FontFamily="Arial" 
+            Opacity="0.5" Visibility="Hidden"
+           >
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="Crimson" Offset="0.3"/>
+                    <GradientStop Color="DarkOrange" Offset="1.0"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+        
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,30" Orientation="Horizontal">
+            <local:Carta x:Name="Carta1" Width="90" Height="120" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <local:Carta.RenderTransform>
+                    <ScaleTransform ScaleX="1.0" ScaleY="1.0" />
+                </local:Carta.RenderTransform>
+            </local:Carta>
+            <local:Carta x:Name="Carta2" Width="90" Height="120" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+                <local:Carta.RenderTransform>
+                    <ScaleTransform ScaleX="1.0" ScaleY="1.0" />
+                </local:Carta.RenderTransform>
+            </local:Carta>
+            <local:Carta x:Name="Carta3" Width="90" Height="120" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <local:Carta.RenderTransform>
+                    <ScaleTransform ScaleX="1.0" ScaleY="1.0" />
+                </local:Carta.RenderTransform>
+            </local:Carta>
+            <local:Carta x:Name="Carta4" Width="90" Height="120" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <local:Carta.RenderTransform>
+                    <ScaleTransform ScaleX="1.0" ScaleY="1.0" />
+                </local:Carta.RenderTransform>
+            </local:Carta>
+            <local:Carta x:Name="Carta5" Width="90" Height="120" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <local:Carta.RenderTransform>
+                    <ScaleTransform ScaleX="1.0" ScaleY="1.0" />
+                </local:Carta.RenderTransform>
+            </local:Carta>
+        </StackPanel>
+
+        <Rectangle x:Name="Efecto" Fill="Red" Width="1280" Height="720" Opacity="0" IsHitTestVisible="False"/>
+
+    </Grid>
+    
+</UserControl>

@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="JuegoTutorial.UserControls.Personaje"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JuegoTutorial.UserControls"
+             mc:Ignorable="d" 
+             Width="100" Height="150">
+    <Canvas x:Name="ContenedorPersonaje" >
+        <Rectangle Width="100" Height="150" x:Name="Jugador">
+            <Rectangle.Fill>
+                <ImageBrush x:Name="Aspecto">
+                    <ImageBrush.Transform>
+                        <ScaleTransform ScaleX="1" CenterX="50"/>
+                        </ImageBrush.Transform>
+                    </ImageBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        <Rectangle x:Name="ColisionPersonaje" Fill="Black" Width="62.5" Height="106.25" Opacity=".40" 
+               Canvas.Left="18.75" Canvas.Top="25" Visibility="Hidden"/>
+    </Canvas>
+</UserControl>
