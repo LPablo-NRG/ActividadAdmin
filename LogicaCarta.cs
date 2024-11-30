@@ -80,6 +80,7 @@ namespace JuegoTutorial
             cartaConfigurable.establecerTipo(cartaNueva.tipo);
         }
 
+
         public void entregarCartas()
         {
             if (cartasInventario.Count >= 3 && puedeInteractuar)
